@@ -1,0 +1,215 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --text: #14161a;
+  --muted: #5c6570;
+  --line: #d8dde3;
+  --accent: #0f766e;
+  --on-accent: #ffffff;
+  --danger: #b91c1c;
+  --ok: #047857;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #070a10;
+    --panel: #121820;
+    --text: #e8ecf1;
+    --muted: #9aa3ad;
+    --line: #2a313a;
+    --accent: #2dd4bf;
+    --on-accent: #042f2e;
+    --danger: #f87171;
+    --ok: #34d399;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family:
+    "Avenir Next",
+    "Segoe UI",
+    "PingFang TC",
+    "Noto Sans TC",
+    sans-serif;
+  background:
+    radial-gradient(
+      900px 480px at 70% -10%,
+      color-mix(in oklab, var(--accent) 16%, transparent),
+      transparent 55%
+    ),
+    var(--bg);
+  color: var(--text);
+}
+
+main {
+  width: min(100%, 40rem);
+  margin: 0 auto;
+  padding: 1.1rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Iowan Old Style", Palatino, "Songti TC", serif;
+  font-size: clamp(1.75rem, 4vw, 2.2rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.tagline {
+  margin: 0.3rem 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.status {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 1.3em;
+}
+
+.status[data-tone="ok"] {
+  color: var(--ok);
+}
+
+.status[data-tone="bad"] {
+  color: var(--danger);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.65rem;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+button {
+  font: inherit;
+  border-radius: 0.45rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: var(--on-accent);
+}
+
+button.secondary,
+button.ghost {
+  background: var(--panel);
+}
+
+button.ghost {
+  padding: 0.25rem 0.55rem;
+  font-size: 0.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.grid .wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.block {
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  background: var(--panel);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.block h2 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.params {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.param-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.4rem;
+}
+
+.param-row input {
+  font: inherit;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.5rem;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.hint a {
+  color: var(--accent);
+}
